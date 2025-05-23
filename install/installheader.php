@@ -29,5 +29,7 @@ require_once '../application/modules/default/library/sapp/Global.php';
 require_once '../public/db_constants.php';
 require_once '../public/constants.php';
 require_once '../public/mail_settings_constants.php';
-require 'PHPMailer/PHPMailerAutoload.php';
+// require 'PHPMailer/PHPMailerAutoload.php'; // Replaced by Composer autoload
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception as PHPMailerException;
 ?>

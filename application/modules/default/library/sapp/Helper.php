@@ -443,8 +443,8 @@ class sapp_Helper
     
     public static function process_emp_excel($file_name)
     {
-        require_once 'Classes/PHPExcel.php';
-        require_once 'Classes/PHPExcel/IOFactory.php';
+        // require_once 'Classes/PHPExcel.php'; // Replaced by Composer autoload
+        // require_once 'Classes/PHPExcel/IOFactory.php'; // Replaced by Composer autoload
         
         $auth = Zend_Auth::getInstance();
         if($auth->hasIdentity())
@@ -456,7 +456,7 @@ class sapp_Helper
         $usersModel = new Default_Model_Usermanagement();
         $identity_code_model = new Default_Model_Identitycodes();
                 
-        $objReader = PHPExcel_IOFactory::createReaderForFile($file_name);
+        $objReader = \PhpOffice\PhpSpreadsheet\IOFactory::createReaderForFile($file_name);
         $objPHPExcel = $objReader->load($file_name);
         //Read first sheet
         $sheet 	= $objPHPExcel->getSheet(0);

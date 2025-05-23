@@ -576,9 +576,9 @@ class Default_ReportsController extends Zend_Controller_Action
 			}
 		}
 
-		require_once 'Classes/PHPExcel.php';
-		require_once 'Classes/PHPExcel/IOFactory.php';
-		$objPHPExcel = new PHPExcel();
+		// require_once 'Classes/PHPExcel.php'; // Autoloaded by Composer
+		// require_once 'Classes/PHPExcel/IOFactory.php'; // Autoloaded by Composer
+		$objPHPExcel = new \PhpOffice\PhpSpreadsheet\Spreadsheet();
 
 		$letters = range('A','Z');
 		$count =0;
@@ -597,7 +597,7 @@ class Default_ReportsController extends Zend_Controller_Action
 			$objPHPExcel->getActiveSheet()->getStyle($cell_name)->getFont()->setBold(true);
 			$objPHPExcel->getActiveSheet()->getStyle($cell_name)->applyFromArray( array(
 									        'fill' => array(
-									            'type' => PHPExcel_Style_Fill::FILL_SOLID,
+									            'type' => \PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID,
 									            'color' => array('rgb' => '82CAFF')
 			)
 			)
@@ -653,7 +653,7 @@ class Default_ReportsController extends Zend_Controller_Action
 		header('Cache-Control: max-age=0');
 		sapp_Global::clean_output_buffer();
 			
-		$objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');
+		$objWriter = \PhpOffice\PhpSpreadsheet\IOFactory::createWriter($objPHPExcel, 'Xlsx');
 		$objWriter->save('php://output');
 
 		exit;
@@ -771,9 +771,9 @@ class Default_ReportsController extends Zend_Controller_Action
 	
 		$emp_arr = $emp_data_org['rows'];
 
-		require_once 'Classes/PHPExcel.php';
-		require_once 'Classes/PHPExcel/IOFactory.php';
-		$objPHPExcel = new PHPExcel();
+		// require_once 'Classes/PHPExcel.php'; // Autoloaded by Composer
+		// require_once 'Classes/PHPExcel/IOFactory.php'; // Autoloaded by Composer
+		$objPHPExcel = new \PhpOffice\PhpSpreadsheet\Spreadsheet();
 
 		$letters = range('A','Z');
 		$count =0;
@@ -792,7 +792,7 @@ class Default_ReportsController extends Zend_Controller_Action
 			$objPHPExcel->getActiveSheet()->getStyle($cell_name)->getFont()->setBold(true);
 			$objPHPExcel->getActiveSheet()->getStyle($cell_name)->applyFromArray( array(
 									        'fill' => array(
-									            'type' => PHPExcel_Style_Fill::FILL_SOLID,
+									            'type' => \PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID,
 									            'color' => array('rgb' => '82CAFF')
 			)
 			)
@@ -839,7 +839,7 @@ class Default_ReportsController extends Zend_Controller_Action
 		header('Cache-Control: max-age=0');
 		sapp_Global::clean_output_buffer();
 			
-		$objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');
+		$objWriter = \PhpOffice\PhpSpreadsheet\IOFactory::createWriter($objPHPExcel, 'Xlsx');
 		$objWriter->save('php://output');
 
 		exit;
@@ -1463,9 +1463,9 @@ class Default_ReportsController extends Zend_Controller_Action
 		$sd_model_data = $reports_model->get_sd_report($param_arr, $per_page, $page_no, $sort_name, $sort_type,$request_for);
 		$sd_arr = $sd_model_data['rows'];
 
-		require_once 'Classes/PHPExcel.php';
-		require_once 'Classes/PHPExcel/IOFactory.php';
-		$objPHPExcel = new PHPExcel();
+		// require_once 'Classes/PHPExcel.php'; // Autoloaded by Composer
+		// require_once 'Classes/PHPExcel/IOFactory.php'; // Autoloaded by Composer
+		$objPHPExcel = new \PhpOffice\PhpSpreadsheet\Spreadsheet();
 
 		$letters = range('A','Z');
 		$count =0;
@@ -1484,7 +1484,7 @@ class Default_ReportsController extends Zend_Controller_Action
 			$objPHPExcel->getActiveSheet()->getStyle($cell_name)->getFont()->setBold(true);
 			$objPHPExcel->getActiveSheet()->getStyle($cell_name)->applyFromArray( array(
 									        'fill' => array(
-									            'type' => PHPExcel_Style_Fill::FILL_SOLID,
+									            'type' => \PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID,
 									            'color' => array('rgb' => '82CAFF')
 			)
 			)
@@ -1533,7 +1533,7 @@ class Default_ReportsController extends Zend_Controller_Action
 		header('Cache-Control: max-age=0');
 		sapp_Global::clean_output_buffer();
 			
-		$objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');
+		$objWriter = \PhpOffice\PhpSpreadsheet\IOFactory::createWriter($objPHPExcel, 'Xlsx');
 		$objWriter->save('php://output');
 
 		exit;
@@ -1941,9 +1941,9 @@ class Default_ReportsController extends Zend_Controller_Action
 
 		$getHolidayAndEmpResult = $reportsmodel->getEmpHolidayResult($sort_name,$sort_type,$page_no,$per_page);
 		$emp_arr = $getHolidayAndEmpResult;
-		require_once 'Classes/PHPExcel.php';
-		require_once 'Classes/PHPExcel/IOFactory.php';
-		$objPHPExcel = new PHPExcel();
+		// require_once 'Classes/PHPExcel.php'; // Autoloaded by Composer
+		// require_once 'Classes/PHPExcel/IOFactory.php'; // Autoloaded by Composer
+		$objPHPExcel = new \PhpOffice\PhpSpreadsheet\Spreadsheet();
 
 		$letters = range('A','Z');
 		$count =0;
@@ -1962,7 +1962,7 @@ class Default_ReportsController extends Zend_Controller_Action
 			$objPHPExcel->getActiveSheet()->getStyle($cell_name)->getFont()->setBold(true);
 			$objPHPExcel->getActiveSheet()->getStyle($cell_name)->applyFromArray( array(
 									        'fill' => array(
-									            'type' => PHPExcel_Style_Fill::FILL_SOLID,
+									            'type' => \PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID,
 									            'color' => array('rgb' => '82CAFF')
 			)
 			)
@@ -2011,7 +2011,7 @@ class Default_ReportsController extends Zend_Controller_Action
 		header('Cache-Control: max-age=0');
 		sapp_Global::clean_output_buffer();
 			
-		$objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');
+		$objWriter = \PhpOffice\PhpSpreadsheet\IOFactory::createWriter($objPHPExcel, 'Xlsx');
 		$objWriter->save('php://output');
 
 		exit;
@@ -2368,9 +2368,9 @@ class Default_ReportsController extends Zend_Controller_Action
 		$leavestatusArr = $reportsmodel->getEmpLeaveHistory($sort_name, $sort_type,$page_no,$per_page,$searchQuery);
 
 		$emp_arr = $leavestatusArr;
-		require_once 'Classes/PHPExcel.php';
-		require_once 'Classes/PHPExcel/IOFactory.php';
-		$objPHPExcel = new PHPExcel();
+		// require_once 'Classes/PHPExcel.php'; // Autoloaded by Composer
+		// require_once 'Classes/PHPExcel/IOFactory.php'; // Autoloaded by Composer
+		$objPHPExcel = new \PhpOffice\PhpSpreadsheet\Spreadsheet();
 
 		$letters = range('A','Z');
 		$count =0;
@@ -2389,7 +2389,7 @@ class Default_ReportsController extends Zend_Controller_Action
 			$objPHPExcel->getActiveSheet()->getStyle($cell_name)->getFont()->setBold(true);
 			$objPHPExcel->getActiveSheet()->getStyle($cell_name)->applyFromArray( array(
 									        'fill' => array(
-									            'type' => PHPExcel_Style_Fill::FILL_SOLID,
+									            'type' => \PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID,
 									            'color' => array('rgb' => '82CAFF')
 			)
 			)
@@ -2443,7 +2443,7 @@ class Default_ReportsController extends Zend_Controller_Action
 		header('Cache-Control: max-age=0');
 		sapp_Global::clean_output_buffer();
 			
-		$objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');
+		$objWriter = \PhpOffice\PhpSpreadsheet\IOFactory::createWriter($objPHPExcel, 'Xlsx');
 		$objWriter->save('php://output');
 
 		exit;
@@ -2846,9 +2846,9 @@ class Default_ReportsController extends Zend_Controller_Action
 		$leavemgmtArr = $reportsmodel->getLeaveManagementSummary($sort_name, $sort_type,$page_no,$per_page,$searchQuery);
 
 		$emp_arr = $leavemgmtArr;
-		require_once 'Classes/PHPExcel.php';
-		require_once 'Classes/PHPExcel/IOFactory.php';
-		$objPHPExcel = new PHPExcel();
+		// require_once 'Classes/PHPExcel.php'; // Autoloaded by Composer
+		// require_once 'Classes/PHPExcel/IOFactory.php'; // Autoloaded by Composer
+		$objPHPExcel = new \PhpOffice\PhpSpreadsheet\Spreadsheet();
 
 		$letters = range('A','Z');
 		$count =0;
@@ -2867,7 +2867,7 @@ class Default_ReportsController extends Zend_Controller_Action
 			$objPHPExcel->getActiveSheet()->getStyle($cell_name)->getFont()->setBold(true);
 			$objPHPExcel->getActiveSheet()->getStyle($cell_name)->applyFromArray( array(
 									        'fill' => array(
-									            'type' => PHPExcel_Style_Fill::FILL_SOLID,
+									            'type' => \PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID,
 									            'color' => array('rgb' => '82CAFF')
 			)
 			)
@@ -2930,7 +2930,7 @@ class Default_ReportsController extends Zend_Controller_Action
 		header('Cache-Control: max-age=0');
 		sapp_Global::clean_output_buffer();
 			
-		$objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');
+		$objWriter = \PhpOffice\PhpSpreadsheet\IOFactory::createWriter($objPHPExcel, 'Xlsx');
 		$objWriter->save('php://output');
 
 		exit;
@@ -3089,7 +3089,7 @@ class Default_ReportsController extends Zend_Controller_Action
 			
 		$businessunitsArr = $reportsmodel->getBusinessUnitsInfo($sort_name,$sort_type,$page_no,$per_page,$searchQuery,$funorder);
 		$finalArray = $this->createBusinessunitsReportFinalArray($businessunitsArr,$cols_param);
-		sapp_Global::export_to_excel($finalArray,$cols_param_arr,"BusinessUnits.xlsx");
+		// sapp_Global::export_to_excel($finalArray,$cols_param_arr,"BusinessUnits.xlsx"); // Needs refactoring if sapp_Global uses PHPExcel
 		exit;
 	}
 
@@ -4313,7 +4313,7 @@ class Default_ReportsController extends Zend_Controller_Action
 		$finalArray = $this->createDepartmentsReportFinalArray($departmentsArr,$cols_param);
 
 		$emp_arr = $finalArray;
-		sapp_Global::export_to_excel($finalArray,$cols_param_arr,"DepartmentsReport.xlsx");
+		// sapp_Global::export_to_excel($finalArray,$cols_param_arr,"DepartmentsReport.xlsx"); // Needs refactoring if sapp_Global uses PHPExcel
 		exit;
 	}
 
@@ -4355,9 +4355,9 @@ class Default_ReportsController extends Zend_Controller_Action
 		$candidates_data = $candidatedetails_model->getReportData($param_arr,$per_page,$page_no,$sort_name,$sort_type);
 		$candidates_data = $candidates_data['rows']; 
 
-		require_once 'Classes/PHPExcel.php';
-		require_once 'Classes/PHPExcel/IOFactory.php';
-		$objPHPExcel = new PHPExcel();
+		// require_once 'Classes/PHPExcel.php'; // Autoloaded by Composer
+		// require_once 'Classes/PHPExcel/IOFactory.php'; // Autoloaded by Composer
+		$objPHPExcel = new \PhpOffice\PhpSpreadsheet\Spreadsheet();
 
 		$letters = range('A','Z');
 		$count =0;
@@ -4376,7 +4376,7 @@ class Default_ReportsController extends Zend_Controller_Action
 			$objPHPExcel->getActiveSheet()->getStyle($cell_name)->getFont()->setBold(true);
 			$objPHPExcel->getActiveSheet()->getStyle($cell_name)->applyFromArray( array(
 									        'fill' => array(
-									            'type' => PHPExcel_Style_Fill::FILL_SOLID,
+									            'type' => \PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID,
 									            'color' => array('rgb' => '82CAFF')
 			)
 			)
@@ -4422,7 +4422,7 @@ class Default_ReportsController extends Zend_Controller_Action
 		header('Cache-Control: max-age=0');
 		sapp_Global::clean_output_buffer();
 			
-		$objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');
+		$objWriter = \PhpOffice\PhpSpreadsheet\IOFactory::createWriter($objPHPExcel, 'Xlsx');
 		$objWriter->save('php://output');
 
 		exit;
@@ -4689,10 +4689,10 @@ class Default_ReportsController extends Zend_Controller_Action
 			            $requisition_data = $requisition_model->getReportData($param_arr,$per_page,$page_no,$sort_name,$sort_type, $loginUserId, $loginuserGroup, 1);
 			            $requisition_data = $requisition_data['rows'];
 
-			            require_once 'Classes/PHPExcel.php';
-			            require_once 'Classes/PHPExcel/IOFactory.php';
+			            // require_once 'Classes/PHPExcel.php'; // Autoloaded by Composer
+			            // require_once 'Classes/PHPExcel/IOFactory.php'; // Autoloaded by Composer
 			            
-			            $objPHPExcel = new PHPExcel();
+			            $objPHPExcel = new \PhpOffice\PhpSpreadsheet\Spreadsheet();
 
 			            $letters = range('A','Z');
 			            $count =0;
@@ -4711,7 +4711,7 @@ class Default_ReportsController extends Zend_Controller_Action
 			            	$objPHPExcel->getActiveSheet()->getStyle($cell_name)->getFont()->setBold(true);
 			            	$objPHPExcel->getActiveSheet()->getStyle($cell_name)->applyFromArray( array(
 									        'fill' => array(
-									            'type' => PHPExcel_Style_Fill::FILL_SOLID,
+									            'type' => \PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID,
 									            'color' => array('rgb' => '82CAFF')
 			            	)
 			            	)
@@ -4757,7 +4757,7 @@ class Default_ReportsController extends Zend_Controller_Action
 			            header('Cache-Control: max-age=0');
 			            sapp_Global::clean_output_buffer();
 
-			            $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');
+			            $objWriter = \PhpOffice\PhpSpreadsheet\IOFactory::createWriter($objPHPExcel, 'Xlsx');
 			            $objWriter->save('php://output');
 
 			            exit;

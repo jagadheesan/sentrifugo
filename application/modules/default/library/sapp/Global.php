@@ -134,9 +134,9 @@ class sapp_Global
          */
         public static function export_to_excel($final_array,$column_array,$filename)
         {
-            require_once 'Classes/PHPExcel.php';
-            require_once 'Classes/PHPExcel/IOFactory.php';
-            $objPHPExcel = new PHPExcel();
+            // require_once 'Classes/PHPExcel.php'; // Replaced by Composer autoload
+            // require_once 'Classes/PHPExcel/IOFactory.php'; // Replaced by Composer autoload
+            $objPHPExcel = new \PhpOffice\PhpSpreadsheet\Spreadsheet();
 
             $letters = range('A','Z');
             $count =0;
@@ -155,7 +155,7 @@ class sapp_Global
                 $objPHPExcel->getActiveSheet()->getStyle($cell_name)->getFont()->setBold(true);
                 $objPHPExcel->getActiveSheet()->getStyle($cell_name)->applyFromArray( array(
 									        'fill' => array(
-									            'type' => PHPExcel_Style_Fill::FILL_SOLID,
+									            'type' => \PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID,
 									            'color' => array('rgb' => '82CAFF')
 									        )
 									    )
@@ -189,7 +189,7 @@ class sapp_Global
             header('Cache-Control: max-age=0');
             self::clean_output_buffer();
 			
-            $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');
+            $objWriter = \PhpOffice\PhpSpreadsheet\IOFactory::createWriter($objPHPExcel, 'Xlsx');
             $objWriter->save('php://output');
             
         }

@@ -18,7 +18,10 @@
  *
  *  Sentrifugo Support <support@sentrifugo.com>
  ********************************************************************************/
-include 'PHPMailer/PHPMailerAutoload.php';
+// include 'PHPMailer/PHPMailerAutoload.php'; // Replaced by Composer autoload
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception as PHPMailerException;
+
 error_reporting(E_ALL | ~E_NOTICE | ~E_WARNING);
 ini_set("display_errors", 0);
 
@@ -193,7 +196,7 @@ public static function _checkMail($options = array()) {
             </div>
     	</div>';
 		
-	    $mail = new PHPMailer(); // create a new object
+	    $mail = new PHPMailer(true); // create a new object, true enables exceptions
 	    $mail->isSMTP(); // enable SMTP
 	    $mail->SMTPDebug = 0; // debugging: 1 = errors and messages, 2 = messages only
 	    $mail->SMTPAuth = ($config['auth'] == 'true')?true:false;//$auth; // authentication enabled

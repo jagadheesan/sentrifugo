@@ -24,7 +24,9 @@ require_once '../public/db_constants.php';
 require_once '../public/constants.php';
 require_once '../public/mail_settings_constants.php';
 require_once '../public/application_constants.php';
-require 'PHPMailer/PHPMailerAutoload.php';;
+// require 'PHPMailer/PHPMailerAutoload.php';; // Replaced by Composer autoload
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception as PHPMailerException;
 ini_set('display_errors', '1');
 ini_set('max_execution_time',0);
 
