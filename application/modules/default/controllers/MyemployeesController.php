@@ -4231,9 +4231,9 @@ class Default_MyemployeesController extends Zend_Controller_Action
 		$employee_model = new Default_Model_Employee();
 		$emp_data_org = $employee_model->getdata_emp_report($param_arr,$per_page,$page_no,$sort_name,$sort_type);
 		$emp_arr = $emp_data_org['rows'];
-		require_once 'Classes/PHPExcel.php';
-		require_once 'Classes/PHPExcel/IOFactory.php';
-		$objPHPExcel = new PHPExcel();
+		// require_once 'Classes/PHPExcel.php'; // Replaced by Composer autoload
+		// require_once 'Classes/PHPExcel/IOFactory.php'; // Replaced by Composer autoload
+		$objPHPExcel = new \PhpOffice\PhpSpreadsheet\Spreadsheet();
 
 		$letters = range('A','Z');
 		$count =0;
@@ -4262,7 +4262,7 @@ class Default_MyemployeesController extends Zend_Controller_Action
 			$objPHPExcel->getActiveSheet()->getStyle($cell_name)->getFont()->setBold(true);
 			$objPHPExcel->getActiveSheet()->getStyle($cell_name)->applyFromArray( array(
 									        'fill' => array(
-									            'type' => PHPExcel_Style_Fill::FILL_SOLID,
+									            'type' => \PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID,
 									            'color' => array('rgb' => '82CAFF')
 			)
 			)
@@ -4308,7 +4308,7 @@ class Default_MyemployeesController extends Zend_Controller_Action
 		header('Cache-Control: max-age=0');
 		sapp_Global::clean_output_buffer();
 			
-		$objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');
+		$objWriter = \PhpOffice\PhpSpreadsheet\IOFactory::createWriter($objPHPExcel, 'Xlsx');
 		$objWriter->save('php://output');
 
 		exit;

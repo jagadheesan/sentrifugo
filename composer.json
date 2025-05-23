@@ -1,0 +1,39 @@
+{
+    "config": {
+        "platform": {
+            "php": "8.0.25"
+        },
+        "allow-plugins": {
+            "laminas/laminas-component-installer": true,
+            "laminas/laminas-dependency-plugin": true,
+            "phpoffice/phpspreadsheet": true,
+            "phpmailer/phpmailer": true
+        }
+    },
+    "require": {
+        "php": "^8.0",
+        "laminas/laminas-mvc": "^3.0",
+        "laminas/laminas-db": "^2.12",
+        "laminas/laminas-form": "^3.0",
+        "laminas/laminas-cache": "^3.0",
+        "laminas/laminas-cache-storage-adapter-filesystem": "^1.1",
+        "laminas/laminas-mail": "^2.10",
+        "laminas/laminas-view": "^2.12",
+        "laminas/laminas-component-installer": "^2.1",
+        "laminas/laminas-dependency-plugin": "^2.0",
+        "phpoffice/phpspreadsheet": "^1.29",
+        "phpmailer/phpmailer": "^6.9"
+    },
+    "require-dev": {
+        "rector/rector": "^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Application\\": "module/Application/src/",
+            "sapp_\\": "application/modules/default/library/sapp/",
+            "Login_\\": "application/modules/default/library/Login/",
+            "Ingot_\\": "application/modules/default/library/Ingot/",
+            "Jqgrid_\\": "application/modules/default/library/Jqgrid/"
+        }
+    }
+}

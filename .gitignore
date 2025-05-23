@@ -1,6 +1,33 @@
-INSTALL.txt
-LICENSE.txt
-README.txt
-demos/
-extras/documentation
-/*.bak
+# Composer dependencies
+vendor/
+
+# Composer lock file
+composer.lock
+
+# Build artifacts
+build/
+
+# Cache files
+cache/
+*.cache
+
+# Log files
+*.log
+logs/
+
+# PHPCompatibility report
+php8_compatibility_report.txt
+
+# Environment files
+.env
+
+# IDE specific files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Old PHPMailer directories
+data/PHPMailer/
+install/PHPMailer/
+application/modules/default/library/PHPMailer/
